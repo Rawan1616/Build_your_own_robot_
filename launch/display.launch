@@ -1,0 +1,22 @@
+<launch>
+
+  <!-- Load robot model -->
+  <arg name="model" default="/home/rawan/catkin_ws/src/Build_your_own_robot_/urdf/robot.urdf.xacro"/>
+
+  <!--  xacro command -->
+  <param name="robot_description" command="$(find xacro)/xacro '$(arg model)'" />
+
+  <!-- Publish TF -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+
+  <!-- GUI sliders for joints -->
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <param name="use_gui" value="true"/>
+  </node>
+
+  <!-- RViz -->
+  <node name="rviz" pkg="rviz" type="rviz"
+        args="-d /home/rawan/catkin_ws/src/Build_your_own_robot_/rviz/robot_display.rviz"
+        required="true" />
+
+</launch>
