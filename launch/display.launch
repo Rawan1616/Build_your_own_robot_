@@ -1,7 +1,7 @@
 <launch>
 
   <!-- Load robot model -->
-  <arg name="model" default="/home/rawan/catkin_ws/src/Build_your_own_robot_/urdf/robot.urdf.xacro"/>
+  <arg name="model" default="/home/rawan/catkin_ws/src/build_your_own_robot/urdf/robot.urdf.xacro"/>
 
   <!--  xacro command -->
   <param name="robot_description" command="$(find xacro)/xacro '$(arg model)'" />
@@ -16,7 +16,7 @@
 
   <!-- RViz -->
   <node name="rviz" pkg="rviz" type="rviz"
-        args="-d /home/rawan/catkin_ws/src/Build_your_own_robot_/rviz/robot_display.rviz"
+        args="-d /home/rawan/catkin_ws/src/build_your_own_robot/rviz/robot_display.rviz"
         required="true" />
 
 </launch>
